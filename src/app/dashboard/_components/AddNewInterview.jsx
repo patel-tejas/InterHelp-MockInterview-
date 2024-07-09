@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { db } from '@/lib/db'
 import { MockInterview } from '@/lib/schema'
-import {v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import { useUser } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
 import chatSession from '@/lib/GeminiAiModel'
@@ -22,7 +22,7 @@ const AddNewInterview = () => {
     const [openDialog, setOpenDialog] = useState(false)
     const [loading, setLoading] = useState(false)
 
-    const {user} = useUser()
+    const { user } = useUser()
     const router = useRouter()
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,7 +39,7 @@ const AddNewInterview = () => {
         // Add your form submission logic here
         const input_prompt = `Job position: ${jobRole}, Job Description: ${jobDesc}, Job Experience: ${experience}. Depending on this information give me 5 questions with answer in JSON format.`
 
-     
+
         const result = await chatSession.sendMessage(input_prompt);
         const responseText_json = result.response.text();
         const responseText = responseText_json.replace('```json', '').replace('```', '');
@@ -55,12 +55,12 @@ const AddNewInterview = () => {
                 jobExperience: experience,
                 createdBy: user?.primaryEmailAddress?.emailAddress,
                 createdAt: new Date().toISOString().slice(0, 10),
-            }).returning({mockId: MockInterview.mockId})
-            
+            }).returning({ mockId: MockInterview.mockId })
+
             // console.log("Inserted ID: ", db_data[0]?.mockId);
             setOpenDialog(false)
             router.push(`/dashboard/interview/${db_data[0].mockId}`)
-        } else{
+        } else {
             setLoading(false)
             alert("Something went wrong. Please try again.")
         }
@@ -76,54 +76,46 @@ const AddNewInterview = () => {
             <Dialog open={openDialog} onOpenChange={setOpenDialog}>
                 <DialogContent>
                     <DialogHeader>
-                        <DialogTitle>Are you absolutely sure?</DialogTitle>
+                        <DialogTitle className='mb-5'>Add Interview</DialogTitle>
                         <DialogDescription>
                             <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-                                <div className="mx-auto max-w-lg text-center">
-                                    <h1 className="text-2xl font-bold sm:text-3xl">Get started today!</h1>
-                                    <p className="mt-4 text-gray-500">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla eaque error neque
-                                        ipsa culpa autem, at itaque nostrum!
-                                    </p>
-                                </div>
-                                <form onSubmit={handleSubmit} className="mx-auto mb-0 mt-8 max-w-md space-y-4 flex flex-col gap-5">
-                                    <div>
-                                        <label htmlFor="job_role" className="sr-only">Job Role/Position</label>
-                                        <div className="relative">
-                                            <input
-                                                type="text"
-                                                className="w-full px-3 py-2 outline-none  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                                                placeholder="Senior Software Engineer"
-                                                id="job_role"
-                                                name="job_role"
-                                            />
-                                        </div>
+
+                                <form onSubmit={handleSubmit} className=" mx-auto mb-0 mt-8 max-w-md space-y-4 flex flex-col gap-5">
+                                    <div className='flex flex-col gap-1'>
+                                        <label htmlFor="job_role" className="text-black font-semibold">Job Role/Position</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-3 py-2 outline-none focus:outline-none border  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                            placeholder="Senior Software Engineer"
+                                            id="job_role"
+                                            name="job_role"
+                                        />
+
                                     </div>
-                                    <div>
-                                        <label htmlFor="job_desc" className="sr-only">Job Description/Tech Stack in short</label>
-                                        <div className="relative">
-                                            <textarea
-                                                rows={4}
-                                                className="w-full px-3 py-2 outline-none  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                                                placeholder="Senior Software Engineer"
-                                                id="job_desc"
-                                                name="job_desc"
-                                            />
-                                        </div>
+                                    <div className='flex flex-col gap-1'>
+                                        <label htmlFor="job_desc" className="text-black font-semibold">Job Description/Tech Stack in short</label>
+                                        <textarea
+                                            rows={4}
+                                            className="focus:outline-none w-full px-3 py-2 outline-none  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                            placeholder="Senior Software Engineer"
+                                            id="job_desc"
+                                            name="job_desc"
+                                        />
                                     </div>
-                                    <div>
-                                        <label htmlFor="experience" className="sr-only">Years of experience</label>
-                                        <div className="relative">
-                                            <input
-                                                type="number"
-                                                max={80}
-                                                className="w-full px-3 py-2 outline-none  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                                                placeholder="Years of experience"
-                                                id="experience"
-                                                name="experience"
-                                            />
-                                        </div>
+
+                                    <div className='flex flex-col gap-1'>
+                                        <label htmlFor="experience" className="text-black font-semibold">Years of experience</label>
+
+                                        <input
+                                            type="number"
+                                            max={80}
+                                            className="focus:outline-none w-full px-3 py-2 outline-none  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                            placeholder="Years of experience"
+                                            id="experience"
+                                            name="experience"
+                                        />
                                     </div>
+
                                     <div className='flex gap-5 justify-end'>
                                         <Button variant="ghost" onClick={() => setOpenDialog(false)}>Cancel</Button>
                                         {loading ? <Button className='bg-primary' type="submit" disabled>Generating ...</Button> :

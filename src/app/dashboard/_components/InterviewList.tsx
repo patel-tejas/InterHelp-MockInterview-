@@ -15,14 +15,14 @@ const InterviewList = () => {
     const { user } = useUser();
     const [interviewList, setInterviewList] = useState<any[]>([]);
 
-    console.log(user?.primaryEmailAddress?.emailAddress!);
+    // console.log(user?.primaryEmailAddress?.emailAddress!);
 
     const getInterviewList = async () => {
         
         const result = await db.select().from(MockInterview)
             .where(eq(MockInterview.createdBy, user?.primaryEmailAddress?.emailAddress!))
             .orderBy(desc(MockInterview.id));
-        console.log(result);
+        // console.log(result);
         setInterviewList(result);
     }
 

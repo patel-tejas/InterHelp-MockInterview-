@@ -12,6 +12,7 @@ const page = () => {
         <AddNewInterview />
       </div>
       <div>
+        
         <InterviewList />
       </div>
     </div>
