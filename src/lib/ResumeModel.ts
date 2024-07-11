@@ -17,7 +17,6 @@ const generationConfig = {
 
 const chatSession = model.startChat({
     generationConfig,
-     
 });
 
 export default chatSession
