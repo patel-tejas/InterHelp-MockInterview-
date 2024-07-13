@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 
 const ResumeSummary = ({ resumeSummary }: { resumeSummary: resumeSummaryType }) => {
     return (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 pb-10">
             <h2 className='text-xl font-bold sm:text-2xl md:text-3xl'>Resume Summary</h2>
             <div className="flex flex-col gap-2">
                 <h3 className='text-lg sm:text-xl font-bold'>Overall View</h3>

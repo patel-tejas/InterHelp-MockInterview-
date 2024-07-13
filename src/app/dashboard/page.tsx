@@ -4,7 +4,7 @@ import InterviewList from './_components/InterviewList'
 
 const page = () => {
   return (
-    <div className='p-10'>
+    <div className='p-5 md:p-10 min-h-screen'>
       <h2 className='text-2xl font-bold'>Dashboard</h2>
       <h2 className='text-gray-500'>Create and Start your AI Mockup Interview</h2>
 

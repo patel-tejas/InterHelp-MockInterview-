@@ -68,7 +68,7 @@ const AddNewInterview = () => {
 
     return (
         <div>
-            <div className='p-10 border rounded-lg bg-secondary hover:scale-105 hover:shadow-md transition-all'
+            <div className='p-3 md:p-10 border rounded-lg bg-secondary hover:scale-105 hover:shadow-md transition-all'
                 onClick={() => setOpenDialog(true)}
             >
                 <h2 className='text-lg text-center'>+ Add New</h2>
@@ -78,38 +78,38 @@ const AddNewInterview = () => {
                     <DialogHeader>
                         <DialogTitle className='mb-5'>Add Interview</DialogTitle>
                         <DialogDescription>
-                            <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+                            <div className="mx-auto max-w-screen-xl py-16 sm:px-6 lg:px-8">
 
                                 <form onSubmit={handleSubmit} className=" mx-auto mb-0 mt-8 max-w-md space-y-4 flex flex-col gap-5">
-                                    <div className='flex flex-col gap-1'>
+                                    <div className='items-start flex flex-col gap-1'>
                                         <label htmlFor="job_role" className="text-black font-semibold">Job Role/Position</label>
                                         <input
                                             type="text"
-                                            className="w-full px-3 py-2 outline-none focus:outline-none border  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                            className="w-full px-3 py-2 outline-none focus:outline-none border  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-white"
                                             placeholder="Senior Software Engineer"
                                             id="job_role"
                                             name="job_role"
                                         />
 
                                     </div>
-                                    <div className='flex flex-col gap-1'>
+                                    <div className='items-start flex flex-col gap-1'>
                                         <label htmlFor="job_desc" className="text-black font-semibold">Job Description/Tech Stack in short</label>
                                         <textarea
                                             rows={4}
-                                            className="focus:outline-none w-full px-3 py-2 outline-none  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                            className="focus:outline-none w-full px-3 py-2 outline-none  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-white"
                                             placeholder="Senior Software Engineer"
                                             id="job_desc"
                                             name="job_desc"
                                         />
                                     </div>
 
-                                    <div className='flex flex-col gap-1'>
+                                    <div className='items-start flex flex-col gap-1'>
                                         <label htmlFor="experience" className="text-black font-semibold">Years of experience</label>
 
                                         <input
                                             type="number"
                                             max={80}
-                                            className="focus:outline-none w-full px-3 py-2 outline-none  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                            className="focus:outline-none w-full px-3 py-2 outline-none  rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-white"
                                             placeholder="Years of experience"
                                             id="experience"
                                             name="experience"
