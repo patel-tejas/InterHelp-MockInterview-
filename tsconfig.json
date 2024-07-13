@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/dashboard/_components/AddNewInterview.jsx", "src/app/dashboard/interview/[id]/start/_components/QuestionSection.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/dashboard/_components/AddNewInterview.jsx", "src/app/dashboard/interview/[id]/start/_components/QuestionSection.jsx", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }

@@ -46,6 +46,12 @@ const InterviewList = () => {
                         )
                     })
                 }
+                {
+                    interviewList?.length == 0 && 
+                    <div className='text-center text-gray-500'>
+                        No interview found
+                    </div>
+                }
             </div>
         </div>
     )

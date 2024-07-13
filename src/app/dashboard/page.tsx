@@ -4,17 +4,17 @@ import InterviewList from './_components/InterviewList'
 
 const page = () => {
   return (
-    <div className='p-5 md:p-10 min-h-screen'>
+    <div className='py-5 md:p-10 min-h-screen'>
       <h2 className='text-2xl font-bold'>Dashboard</h2>
       <h2 className='text-gray-500'>Create and Start your AI Mockup Interview</h2>
 
       <div className='grid grid-cols-1 md:grid-cols-3 my-5'>
         <AddNewInterview />
       </div>
-      <div>
-        
-        <InterviewList />
-      </div>
+
+
+      <InterviewList />
+
     </div>
   )
 }

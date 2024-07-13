@@ -1,3 +1,4 @@
+import Feature2 from '@/components/Feature2'
 import { FeaturesSectionDemo } from '@/components/FeatureGrid'
 import Features from '@/components/Features'
 import HeroSection from '@/components/HeroSection'
@@ -7,7 +8,8 @@ const Home = () => {
   return (
     <div className=''>
       <HeroSection />
-      <FeaturesSectionDemo />
+      {/* <FeaturesSectionDemo /> */}
+      <Feature2 />
     </div>
   )
 }
