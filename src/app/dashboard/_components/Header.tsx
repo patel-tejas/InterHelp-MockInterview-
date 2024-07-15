@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import {
     Sheet,
+    SheetClose,
     SheetContent,
     SheetDescription,
     SheetHeader,
@@ -16,7 +17,7 @@ const Header = () => {
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-20 items-center justify-between">
                     <div className="flex items-center">
-                            <Link href={"/"} className='text-blue-500 font-bold text-xl'>InterHelp</Link>
+                        <Link href={"/"} className='text-blue-500 font-bold text-xl'>InterHelp</Link>
                     </div>
 
                     <div className="hidden md:block">
@@ -38,22 +39,26 @@ const Header = () => {
                             </ul>
                         </nav>
                     </div>
-                    <div className='sm:hidden flex items-center justify-center'>
+                    <div className='sm:hidden flex items-center'>
                         <Sheet>
                             <SheetTrigger>
                                 <div className='flex flex-col gap-1'>
 
-                                <div className='bg-black h-[2px] w-5 rounded-full'></div>
-                                <div className='bg-black h-[2px] w-5 rounded-full'></div>
-                                <div className='bg-black h-[2px] w-5 rounded-full'></div>
+                                    <div className='bg-black h-[2px] w-5 rounded-full'></div>
+                                    <div className='bg-black h-[2px] w-5 rounded-full'></div>
+                                    <div className='bg-black h-[2px] w-5 rounded-full'></div>
                                 </div>
                             </SheetTrigger>
                             <SheetContent>
                                 <SheetHeader>
-                                    <SheetTitle>Are you absolutely sure?</SheetTitle>
+                                    <SheetTitle className='text-left font-bold text-xl text-blue-500'>Interhelp</SheetTitle>
                                     <SheetDescription>
-                                        This action cannot be undone. This will permanently delete your account
-                                        and remove your data from our servers.
+                                        <div className='flex flex-col gap-3 items-start justify-start mt-10'>
+                                            <SheetClose asChild>
+                                                <Link href={"/dashboard/resume"} className='text-gray-800 text-lg hover:text-blue-500 hover:font-semibold duration-200' > - Resume Checker</Link>
+                                            </SheetClose>
+
+                                        </div>
                                     </SheetDescription>
                                 </SheetHeader>
                             </SheetContent>

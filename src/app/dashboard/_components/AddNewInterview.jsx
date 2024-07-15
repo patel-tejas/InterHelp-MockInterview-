@@ -73,18 +73,14 @@ const AddNewInterview = () => {
             >
                 <h2 className='text-lg text-center'>+ Add New</h2>
             </div>
-            <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-                    <DialogContent>
+            <Dialog open={openDialog} onOpenChange={setOpenDialog} >
+                    <DialogContent className=' '>
                         <DialogHeader>
                             <DialogTitle className=''>Add Interview</DialogTitle>
-                            <DialogDescription>
-                                <div className="mx-auto max-w-screen-xl py-8 sm:px-6 lg:px-8">
-
-                                </div>
-                            </DialogDescription>
+                            
                         </DialogHeader>
-                        <form onSubmit={handleSubmit} className=" mx-auto mb-0 mt-8 max-w-md space-y-4 flex flex-col gap-5">
-                            <div className='items-start flex flex-col gap-1'>
+                        <form onSubmit={handleSubmit} className=" mx-auto mb-0 mt-4 w-full space-y-4 flex flex-col gap-5">
+                            <div className='items-start flex flex-col gap-1 w-full'>
                                 <label htmlFor="job_role" className="text-black font-semibold">Job Role/Position</label>
                                 <input
                                     type="text"
@@ -97,7 +93,7 @@ const AddNewInterview = () => {
 
                             </div>
                             <div className='items-start flex flex-col gap-1 text-left'>
-                                <label htmlFor="job_desc" className="text-black font-semibold">Job Description/Tech Stack in short</label>
+                                <label htmlFor="job_desc" className="text-black font-semibold">Job Description/Tech Stack</label>
                                 <textarea
                                     rows={4}
                                     className="focus:outline-none w-full px-3 py-2 outline-none  border rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-white"
